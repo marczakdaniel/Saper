@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <time.h>
 #include <conio.h>
+#include <stdbool.h>
 
 /*
     Dane:
@@ -38,4 +39,8 @@ void printBoard(void);
 void wybor(void);
 
 int min(int a, int b);
+
+void zaznacz_DFS(int i, int j);
+
+void sprawdz(void);
 

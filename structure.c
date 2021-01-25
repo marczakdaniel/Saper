@@ -80,3 +80,32 @@ void wybor(void) {
     printf("%c %c%c", opcja, kolumna, wiersz);
 }
 
+void zaznacz_DFS(int i, int j) {
+    Board[i][j].ukryte = 1;
+    if (Board[i][j].mina == 0) {
+        if (i < 9 && Board[i + 1][j].ukryte == 0) zaznacz_DFS(i + 1, j);
+        if (i > 1 && Board[i - 1][j].ukryte == 0) zaznacz_DFS(i - 1, j);
+        if (j < 9 && Board[i][j + 1].ukryte == 0) zaznacz_DFS(i, j + 1);
+        if (j > 1 && Board[i][j - 1].ukryte == 0) zaznacz_DFS(i, j - 1);
+        if (i < 9 && j < 9 && Board[i + 1][j + 1].ukryte == 0) zaznacz_DFS(i + 1, j + 1);
+        if (i < 9 && j > 1 && Board[i + 1][j - 1].ukryte == 0) zaznacz_DFS(i + 1, j - 1);
+        if (i > 1 && j < 9 && Board[i - 1][j + 1].ukryte == 0) zaznacz_DFS(i - 1, j + 1);
+        if (i > 1 && j > 1 && Board[i - 1][j - 1].ukryte == 0) zaznacz_DFS(i - 1, j - 1);
+    }
+}
+
+void sprawdz(void) {
+    randMine();
+    bool czy = true;
+    for (int i = 1; i <= 9 && czy; i++) {
+        for (int j = 1; j <= 9 && czy; j++) {
+            if (Board[i][j].mina == 0) {
+                zaznacz_DFS(i, j);
+                czy = false;
+            }
+        }
+    }
+    printBoard();
+    //wybor();
+}
+

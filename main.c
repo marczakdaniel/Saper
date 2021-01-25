@@ -1,7 +1,6 @@
 #include "structure.h"
+#include <stdbool.h>
 
 int main() {
-    randMine();
-    printBoard();
-    wybor();
+    sprawdz();
 }
