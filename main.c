@@ -2,5 +2,6 @@
 #include <stdbool.h>
 
 int main() {
-    sprawdz();
+    init();
+    statystyki();
 }

@@ -1,7 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
-#include <conio.h>
 #include <stdbool.h>
 
 /*
@@ -25,10 +24,12 @@
              1 - pole widoczne
 */
 
+#define MINA -1
+
 typedef struct p {
     int mina;
-    int flaga;
-    int ukryte;
+    bool flaga;
+    bool widoczne;
 } Pole;
 
 
@@ -42,5 +43,17 @@ int min(int a, int b);
 
 void zaznacz_DFS(int i, int j);
 
-void sprawdz(void);
+void zaznacz(int i, int j);
+
+void koniec(void);
+
+void init(void);
+
+void zaznacz_pierw(void);
+
+bool czy_wygrana(void);
+
+void rozmiar_pola(void);
+
+void statystyki(void);
 
